@@ -10,4 +10,14 @@
     <ProjectReference Include="..\CarBook.Domain\CarBook.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\CQRS\Commands\CategoryCommands\ContactCommands\" />
+    <Folder Include="Features\MediatR\Commands\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.1.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
+  </ItemGroup>
+
 </Project>
