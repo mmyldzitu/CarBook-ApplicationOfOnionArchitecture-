@@ -29,4 +29,8 @@
     <ProjectReference Include="..\CarBook.Dto\CarBook.Dto.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\carbook-master\images\cars\" />
+  </ItemGroup>
+
 </Project>

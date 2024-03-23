@@ -16,7 +16,8 @@ namespace CarBook.WebApi.Controllers
         private readonly GetCarByIdQueryHandler _getCarByIdQueryHandler;
         private readonly GetCarQueryHandler _getCarQueryHandler;
         private readonly GetCarWithBrandQueryHandler _getCarWithBrandQueryHandler;
-        public CarController(CreateCarCommandHandler createCommandHandler, UpdateCarCommandHandler updateCommandHandler, RemoveCarCommandHandler removeCommandHandler, GetCarByIdQueryHandler getCarByIdQueryHandler, GetCarQueryHandler getCarQueryHandler, GetCarWithBrandQueryHandler getCarWithBrandQueryHandler)
+        private readonly GetLast5CarsWithBrandQueryHandler _getLast5CarsWithBrandQueryHandler;
+        public CarController(CreateCarCommandHandler createCommandHandler, UpdateCarCommandHandler updateCommandHandler, RemoveCarCommandHandler removeCommandHandler, GetCarByIdQueryHandler getCarByIdQueryHandler, GetCarQueryHandler getCarQueryHandler, GetCarWithBrandQueryHandler getCarWithBrandQueryHandler, GetLast5CarsWithBrandQueryHandler getLast5CarsWithBrandQueryHandler)
         {
             _createCommandHandler = createCommandHandler;
             _updateCommandHandler = updateCommandHandler;
@@ -24,6 +25,7 @@ namespace CarBook.WebApi.Controllers
             _getCarByIdQueryHandler = getCarByIdQueryHandler;
             _getCarQueryHandler = getCarQueryHandler;
             _getCarWithBrandQueryHandler = getCarWithBrandQueryHandler;
+            _getLast5CarsWithBrandQueryHandler = getLast5CarsWithBrandQueryHandler;
         }
         [HttpGet]
         public async Task<IActionResult> GetCars()
@@ -39,6 +41,14 @@ namespace CarBook.WebApi.Controllers
         {
 
             var values = await _getCarWithBrandQueryHandler.Handle();
+            return Ok(values);
+
+        }
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetLast5CarsWithBrand()
+        {
+
+            var values = await _getLast5CarsWithBrandQueryHandler.Handle();
             return Ok(values);
 
         }

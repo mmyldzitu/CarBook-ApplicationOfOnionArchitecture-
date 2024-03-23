@@ -10,5 +10,6 @@ namespace CarBook.Application.Interfaces.CarInterfaces
     public interface ICarRepository
     {
          Task< List<Car>> GetCarsWithBrand();
+         Task< List<Car>> GetCarsTop5WithBrand();
     }
 }
