@@ -2,11 +2,7 @@
 using CarBook.Domain.Entities;
 using CarBook.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace CarBook.Persistance.Repositories.BlogRepositories
 {
@@ -23,6 +19,13 @@ namespace CarBook.Persistance.Repositories.BlogRepositories
         {
 
             var values = await _context.Blogs.Include(x=>x.Author).OrderByDescending(x => x.BlogId).Take(3).ToListAsync();
+
+            return values;
+        }
+        public async Task<List<Blog>> GetAllBlogsWithAuthors()
+        {
+
+            var values = await _context.Blogs.Include(x => x.Author).Include(x=>x.Category).ToListAsync();
 
             return values;
         }

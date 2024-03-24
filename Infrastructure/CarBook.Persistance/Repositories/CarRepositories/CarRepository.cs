@@ -31,6 +31,14 @@ namespace CarBook.Persistance.Repositories.CarRepositories
             return list;
         }
 
-        
+        public Task<List<Car>> GetCarsWithPricings()
+        {
+            throw new NotImplementedException();
+        }
+
+        //public Task<List<Car>> GetCarsWithPricings()
+        //{
+        //    var values = _context.Cars.Include(x => x.Brand).ToList(;
+        //}
     }
 }
