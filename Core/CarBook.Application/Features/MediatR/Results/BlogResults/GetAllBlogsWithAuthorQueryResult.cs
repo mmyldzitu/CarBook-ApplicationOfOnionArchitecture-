@@ -12,9 +12,12 @@ namespace CarBook.Application.Features.MediatR.Results.BlogResults
         public string? Title { get; set; }
         public int AuthorId { get; set; }
         public string? AuthorName { get; set; }
+        public string? AuthorImg { get; set; }
+        public string? AuthorDescription { get; set; }
         public string? CoverImg { get; set; }
         public DateTime CreateDate { get; set; }
         public int CategoryId { get; set; }
+        public string? Description { get; set; }
         public string?   CategoryName { get; set; }
     }
 }

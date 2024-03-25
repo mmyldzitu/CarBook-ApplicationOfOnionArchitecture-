@@ -17,5 +17,7 @@ namespace CarBook.Application.Features.MediatR.Commands.BlogCommands
         public DateTime CreateDate { get; set; }
 
         public int CategoryId { get; set; }
+        public string? Description { get; set; }
+
     }
 }

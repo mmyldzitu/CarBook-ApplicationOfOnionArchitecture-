@@ -26,7 +26,7 @@ namespace CarBook.Application.Features.MediatR.Handlers.BlogHandlers
             if (entity != null)
             {
 
-                return new GetBlogByIdQueryResult { BlogId = entity.BlogId, Title = entity.Title, CategoryId = entity.CategoryId, CreateDate = entity.CreateDate , CoverImg=entity.CoverImg, AuthorId=entity.AuthorId };
+                return new GetBlogByIdQueryResult { BlogId = entity.BlogId, Title = entity.Title, CategoryId = entity.CategoryId, CreateDate = entity.CreateDate , CoverImg=entity.CoverImg, AuthorId=entity.AuthorId,Description=entity.Description };
             }
             return new GetBlogByIdQueryResult();
         }

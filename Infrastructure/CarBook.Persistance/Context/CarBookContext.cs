@@ -33,6 +33,7 @@ namespace CarBook.Persistance.Context
         public DbSet<Testiomanial> Testiomanials { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Blog> Blogs { get; set; }
+        public DbSet<TagCloud> TagClouds { get; set; }
         
 
     }

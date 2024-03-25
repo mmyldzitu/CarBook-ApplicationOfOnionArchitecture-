@@ -29,5 +29,15 @@ namespace CarBook.Persistance.Repositories.BlogRepositories
 
             return values;
         }
+
+        public async Task<Blog> GetBlogWithAuthor(int id)
+        {
+            var value = await _context.Blogs.Include(x => x.Author).Include(x => x.Category).Where(x => x.BlogId == id).SingleOrDefaultAsync();
+            if (value != null)
+            {
+                return value;
+            }
+            return new Blog();
+        }
     }
 }

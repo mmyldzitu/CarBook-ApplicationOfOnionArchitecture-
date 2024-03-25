@@ -21,7 +21,7 @@ namespace CarBook.Application.Features.MediatR.Handlers.BlogHandlers
 
         public async Task Handle(CreateBlogCommand request, CancellationToken cancellationToken)
         {
-            var entity = new Blog { Title  = request.Title, CreateDate = request.CreateDate, AuthorId = request.AuthorId,CategoryId=request.CategoryId, CoverImg=request.CoverImg };
+            var entity = new Blog { Title  = request.Title, CreateDate = request.CreateDate, AuthorId = request.AuthorId,CategoryId=request.CategoryId, CoverImg=request.CoverImg,Description=request.Description };
             await _repository.CreateAsync(entity);
         }
     }

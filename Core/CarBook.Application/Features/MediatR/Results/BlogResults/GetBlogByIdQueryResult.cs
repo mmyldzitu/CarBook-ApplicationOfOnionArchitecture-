@@ -15,6 +15,7 @@ namespace CarBook.Application.Features.MediatR.Results.BlogResults
         
         public string? CoverImg { get; set; }
         public DateTime CreateDate { get; set; }
+        public string? Description { get; set; }
 
         public int CategoryId { get; set; }
         

@@ -27,7 +27,10 @@ namespace CarBook.Application.Features.MediatR.Handlers.BlogHandlers
                 CoverImg = x.CoverImg,
                 CreateDate = x.CreateDate,
                 Title = x.Title,
+                AuthorDescription=x.Author?.Description,
+                AuthorImg=x.Author?.ImageUrl,
                 CategoryName=x.Category?.Name,
+                Description=x.Description
 
 
 

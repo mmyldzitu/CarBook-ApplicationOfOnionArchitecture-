@@ -24,6 +24,7 @@ namespace CarBook.Application.Features.MediatR.Handlers.BlogHandlers
                 entity.CategoryId = request.CategoryId;
                 entity.CreateDate = request.CreateDate;
                 entity.AuthorId = request.AuthorId;
+                entity.Description=request.Description;
                 await _repository.UpdateAsync(entity);
             }
         }

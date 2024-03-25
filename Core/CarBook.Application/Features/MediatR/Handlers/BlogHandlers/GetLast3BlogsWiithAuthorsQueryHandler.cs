@@ -30,6 +30,7 @@ namespace CarBook.Application.Features.MediatR.Handlers.BlogHandlers
             CoverImg= x.CoverImg,
             CreateDate = x.CreateDate,
             Title= x.Title,
+            Description=x.Description,
             
 
             
