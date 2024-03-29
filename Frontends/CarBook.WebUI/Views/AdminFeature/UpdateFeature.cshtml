@@ -1,0 +1,32 @@
+﻿@model UpdateFeatureDto
+@{
+    ViewData["Title"] = "UpdateFeature";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <h4 class="card-title">Özellik Güncelle </h4>
+                    <p class="card-subtitle mb-4">Araçlar ile ilgili  özellik güncelleyiniz.</p>
+
+                    <form method="post" asp-action="UpdateFeature" asp-controller="AdminFeature">
+                        <input  type="hidden" asp-for="FeatureId"/>
+                        <div class="form-group">
+                            <label for="exampleInputFeatureName">Özellik</label>
+                            <input asp-for="@Model.FeatureName" type="text" class="form-control" placeholder="Özellik İsmini Giriniz" />
+                        </div>
+
+                        <button type="submit" class="btn btn-primary waves-effect waves-light">Özellik Güncelle</button>
+                    </form>
+
+                </div> <!-- end card-body-->
+            </div>
+
+        </div>
+    </div>
+</div>
+

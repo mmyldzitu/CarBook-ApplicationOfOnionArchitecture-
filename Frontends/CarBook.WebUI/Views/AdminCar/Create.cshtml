@@ -1,0 +1,64 @@
+﻿@model CreateCarDto
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <h4 class="card-title">Yeni Araç </h4>
+                        <p class="card-subtitle mb-4">Araç ile ilgili temel bilgileri eksiksiz doldurunuz ve kaydediniz.</p>
+
+                        <form method="post" asp-action="Create" asp-controller="AdminCar">
+                            <div class="form-group">
+                                <label for="exampleInputBrand">Marka</label>
+                                <select asp-for="BrandId" asp-items="@ViewBag.brandValues" class="form-select form-control"></select>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputModel">Model</label>
+                                <input asp-for="@Model.Model" type="text" class="form-control" placeholder="Model Girişi Yapınız" />
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputCoverImgUrl">Kapak Fotoğrafı</label>
+                                <input asp-for="@Model.CoverImgUrl" type="text" class="form-control" placeholder="Kapak Fotoğrafı Linkini Giriniz" />
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputKm">Km</label>
+                                <input asp-for="@Model.Km" type="number" class="form-control" placeholder="KM Bilgisi Giriniz" />
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputTransmission">Vites</label>
+                                <input asp-for="@Model.Transmission" type="text" class="form-control" placeholder="Vites Türünü Girniz" />
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputSeat">Koltuk</label>
+                                <input asp-for="@Model.Seat" type="number" class="form-control" placeholder="Koltuk Sayısını Giriniz" />
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputLuggage">Bagaj Sayısı</label>
+                                <input asp-for="@Model.Luggage" type="number" class="form-control" placeholder="Bagaj Sayısını Giriniz" />
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputFuel">Yakıt Türü</label>
+                                <input asp-for="@Model.Fuel" type="text" class="form-control"  placeholder="Yakıt Türünü Giriniz" />
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputBigImgUrl">İkincil Fotoğraf</label>
+                                <input asp-for="@Model.BigImgUrl" class="form-control" type="text" placeholder="İkincil Fotoğraf Linkini Giriniz" />
+                            </div>
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Araç Ekle</button>
+                        </form>
+
+                    </div> <!-- end card-body-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+

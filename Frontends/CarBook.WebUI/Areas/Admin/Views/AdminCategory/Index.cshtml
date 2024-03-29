@@ -1,0 +1,76 @@
+﻿@model List<ResultCategoryDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="container-fluid">
+
+    <!-- start page title -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Kategori Listesi</h4>
+                    <p class="card-subtitle mb-4">
+                        Kategorilere Ait Bilgiliri Görebilir, Ekleyebilir, Silebilir ve Güncelleyebilirisiniz
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table mb-0">
+                            <thead>
+                                <tr>
+
+                                    <th>#</th>
+
+                                    <th>Kategori</th>
+
+
+                                    <th>Sil</th>
+                                    <th>Güncelle</th>
+                                    <th>Bloglar</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    count++;
+
+                                    <tr>
+                                        <td>@count</td>
+                                        <td> @item.name </td>
+
+                                        <td><a href="/Admin/AdminCategory/DeleteCategory/@item.categoryId" class="btn  btn-outline-danger">Sil</a></td>
+                                        <td><a href="/Admin/AdminCategory/UpdateCategory/@item.categoryId" class="btn btn-outline-success">Güncelle</a></td>
+                                        <td><a href="#" class="btn btn-outline-success">Bloglar</a></td>
+
+
+
+
+                                    </tr>
+
+                                }
+
+
+                            </tbody>
+                        </table>
+                        <br />
+                        <a href="/Admin/AdminCategory/CreateCategory" class="btn btn-primary">Yeni Kategori</a>
+
+                    </div>
+
+                </div>
+                <!-- end card-body-->
+            </div>
+            <!-- end card -->
+
+        </div>
+        <!-- end col -->
+        <!-- end col -->
+    </div>
+    <!-- end page title -->
+
+</div>
+

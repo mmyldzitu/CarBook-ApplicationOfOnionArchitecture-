@@ -1,0 +1,37 @@
+﻿@model UpdateAuthorDto
+@{
+    ViewData["Title"] = "UpdateAuthor";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <h4 class="card-title">Yazar Bilgisi Güncelle </h4>
+                    <p class="card-subtitle mb-4">Yazara Ait Bilgileri  güncelleyiniz.</p>
+
+                    <form method="post" asp-action="UpdateAuthor" asp-controller="AdminAuthor">
+                        <input type="hidden" asp-for="authorId" />
+                        <div class="form-group">
+                            <label for="exampleInputFeatureName">İsim Soyisim</label>
+                            <input asp-for="@Model.authorName" type="text" class="form-control" placeholder="İsim Soyisim Giriniz" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="exampleInputFeatureName">Görsel Yolu</label>
+                            <input asp-for="@Model.imageUrl" type="text" class="form-control" placeholder="Görsel Yolu Giriniz" />
+                        </div>
+
+                        <button type="submit" class="btn btn-primary waves-effect waves-light"> Yazar  Güncelle</button>
+                    </form>
+
+                </div> <!-- end card-body-->
+            </div>
+
+        </div>
+    </div>
+</div>
+

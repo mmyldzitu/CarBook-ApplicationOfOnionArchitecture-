@@ -1,0 +1,44 @@
+﻿@model CreateBannerDto
+@{
+    ViewData["Title"] = "CreateBanner";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <h4 class="card-title">Yeni Banner </h4>
+                    <p class="card-subtitle mb-4">Yeni Banner İle İlgili Bilgileri Eksiksiz Doldurunuz.</p>
+
+                    <form method="post" asp-action="CreateBanner" asp-controller="AdminBanner">
+                        
+                        <div class="form-group">
+                            <label for="exampleInputModel">Title</label>
+                            <input asp-for="@Model.title" type="text" class="form-control" placeholder="Banner Başlığı Giriniz" />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputCoverImgUrl">Açıklama</label>
+                            <input asp-for="@Model.description" type="text" class="form-control" placeholder="Banner Açıklaması Giriniz" />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputKm">VideoUrl</label>
+                            <input asp-for="@Model.videUrl" type="text" class="form-control" placeholder="VideoUrl Ekleyiniz" />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputTransmission">Vide Açıklaması</label>
+                            <input asp-for="@Model.videoDescription" type="text" class="form-control" placeholder="Video Açıklaması Giriniz" />
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary waves-effect waves-light">Banner Ekle</button>
+                    </form>
+
+                </div> <!-- end card-body-->
+            </div>
+
+        </div>
+    </div>
+</div>
+
