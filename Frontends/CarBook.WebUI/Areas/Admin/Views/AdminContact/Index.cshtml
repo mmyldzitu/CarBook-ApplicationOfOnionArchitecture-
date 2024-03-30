@@ -9,23 +9,49 @@
 
     <!-- start page title -->
     <div class="row">
-        <div class="col-xl-12">
+        <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Kategori Listesi</h4>
+                    <h4 class="card-title">Gelen Mesajlar</h4>
                     <p class="card-subtitle mb-4">
-                        Kategorilere Ait Bilgileri Görebilir, Ekleyebilir, Silebilir ve Güncelleyebilirisiniz
+                        İletişim Alanında Ziyaretçilerin Gönderdiği Mesajlar Listelenir
                     </p>
-                    ....
 
-                </div>
-                <!-- end card-body-->
-            </div>
-            <!-- end card -->
+                    <table id="basic-datatable" class="table dt-responsive nowrap">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>İsim Soyisim</th>
+                                <th>Email</th>
+                                <th>Tarih</th>
+                                <th>Konu</th>
+                                <th>Mesaj</th>
+                                
+                            </tr>
+                        </thead>
 
-        </div>
-        <!-- end col -->
-        <!-- end col -->
+
+                        <tbody>
+                            @foreach(var item in Model)
+                            {
+                                count++;
+                                <tr>
+                                    <td>@count</td>
+                                    <td>@item.name</td>
+                                    <td>@item.email</td>
+                                    <td>@item.sendDate.ToShortDateString()</td>
+                                    <td>@item.subject</td>
+                                    <td>@item.message</td>
+                                </tr>
+                            }
+                          
+                            
+                        </tbody>
+                    </table>
+
+                </div> <!-- end card body-->
+            </div> <!-- end card -->
+        </div><!-- end col-->
     </div>
     <!-- end page title -->
 

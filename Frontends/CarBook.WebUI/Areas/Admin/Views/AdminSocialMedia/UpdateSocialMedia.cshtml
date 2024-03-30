@@ -1,0 +1,40 @@
+﻿@model UpdateSocialMediaDto
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <h4 class="card-title">Sosyal Medya Hesabı  Güncelle </h4>
+                    <p class="card-subtitle mb-4">Hesap Bilgilerini Güncelleyiniz.</p>
+
+                    <form method="post" asp-action="UpdateSocialMedia" asp-controller="AdminSocialMedia">
+                        <input type="hidden" asp-for="id" />
+                        <div class="form-group">
+                            <label for="exampleInputFeatureName">Sosya Medya Uygulaması Sitesi</label>
+                            <input asp-for="@Model.name" type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFeatureName">Url</label>
+                            <input asp-for="@Model.url" type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFeatureName">İkon Url</label>
+                            <input asp-for="@Model.iconUrl" type="text" class="form-control" />
+                        </div>
+
+
+
+                        <button type="submit" class="btn btn-primary waves-effect waves-light"> Link  Güncelle</button>
+                    </form>
+
+                </div> <!-- end card-body-->
+            </div>
+
+        </div>
+    </div>
+</div>

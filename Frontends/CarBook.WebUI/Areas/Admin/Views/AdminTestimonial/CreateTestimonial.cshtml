@@ -1,0 +1,42 @@
+﻿@model CreateTestimonialDto
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <h4 class="card-title">Yeni Referans Ekleme</h4>
+                    <p class="card-subtitle mb-4">Yeni Referans Ekleyin</p>
+
+                    <form method="post" asp-action="CreateTestimonial" asp-controller="AdminTestimonial">
+
+                        <div class="form-group">
+                            <label for="exampleInputBrandName">İsim Soyisim</label>
+                            <input asp-for="@Model.name" type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputBrandName">Ünvan</label>
+                            <input asp-for="@Model.title" type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputBrandName">Yorum</label>
+                            <input asp-for="@Model.comment" type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputBrandName">Görsel</label>
+                            <input asp-for="@Model.imageUrl" type="text" class="form-control" />
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary waves-effect waves-light">Referans Ekle</button>
+                    </form>
+
+                </div> <!-- end card-body-->
+            </div>
+
+        </div>
+    </div>
+</div>

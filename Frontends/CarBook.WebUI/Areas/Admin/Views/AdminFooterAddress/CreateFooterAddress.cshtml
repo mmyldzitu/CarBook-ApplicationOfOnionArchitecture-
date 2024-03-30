@@ -1,0 +1,43 @@
+﻿@model CreateFooterAddressDto
+@{
+    
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+ 
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <h4 class="card-title">Yeni Alt Adres</h4>
+                    <p class="card-subtitle mb-4">Alt Adres Bilgisi Ekleyin</p>
+
+                    <form method="post" asp-action="CreateFooterAddress" asp-controller="AdminFooterAddress">
+
+                        <div class="form-group">
+                            <label for="exampleInputBrandName">Adres</label>
+                            <input asp-for="@Model.Address" type="text" class="form-control" placeholder="Adres" />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputBrandName">Açıklama</label>
+                            <input asp-for="@Model.Description" type="text" class="form-control" placeholder="Açıklama Giriniz" />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputBrandName">Email</label>
+                            <input asp-for="@Model.Email" type="text" class="form-control" placeholder="Mail Adresi" />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputBrandName">Telefon Numarası</label>
+                            <input asp-for="@Model.PhoneNumber" type="text" class="form-control" placeholder="Telefon No" />
+                        </div>
+
+                        <button type="submit" class="btn btn-primary waves-effect waves-light">Alt Adres Ekle</button>
+                    </form>
+
+                </div> <!-- end card-body-->
+            </div>
+
+        </div>
+    </div>
+</div>

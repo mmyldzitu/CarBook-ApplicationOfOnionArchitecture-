@@ -8,27 +8,27 @@ namespace CarBook.WebUI.Controllers
         {
             return View();
         }
-        public async Task <PartialViewResult> AdminHeaderPartial()
+        public   PartialViewResult AdminHeaderPartial()
         {
 
             return PartialView();
         }
-        public async Task<PartialViewResult> AdminNavbarPartial()
+        public PartialViewResult AdminNavbarPartial()
         {
 
             return  PartialView();
         }
-        public async Task<PartialViewResult> AdminSideBarPartial()
+        public PartialViewResult AdminSideBarPartial()
         {
 
             return PartialView();
         }
-        public async Task<PartialViewResult> AdminFooterPartial()
+        public  PartialViewResult AdminFooterPartial()
         {
 
             return PartialView();
         }
-        public async Task<PartialViewResult> AdminScriptPartial()
+        public PartialViewResult AdminScriptPartial()
         {
 
             return PartialView();

@@ -1,0 +1,31 @@
+﻿@model UpdateLocationDto
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <h4 class="card-title">Lokasyon Güncelle </h4>
+                    <p class="card-subtitle mb-4">Lokasyonu Güncelleyiniz.</p>
+
+                    <form method="post" asp-action="UpdateLocation" asp-controller="AdminLocation">
+                        <input type="hidden" asp-for="locationId" />
+                        <div class="form-group">
+                            <label for="exampleInputFeatureName">Lokasyon İsmi</label>
+                            <input asp-for="@Model.locationName" type="text" class="form-control" />
+                        </div>
+
+
+
+                        <button type="submit" class="btn btn-primary waves-effect waves-light"> Lokasyon  Güncelle</button>
+                    </form>
+
+                </div> <!-- end card-body-->
+            </div>
+
+        </div>
+    </div>
+</div>

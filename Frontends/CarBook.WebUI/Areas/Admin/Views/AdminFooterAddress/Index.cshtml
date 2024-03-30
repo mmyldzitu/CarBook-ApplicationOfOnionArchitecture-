@@ -1,0 +1,84 @@
+﻿@model List<ResultFooterAddressDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    
+}
+<div class="container-fluid">
+
+    <!-- start page title -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title"> Alt Adres Listesi</h4>
+                    <p class="card-subtitle mb-4">
+                        Sitemizde Yalnızca 1 Adet Alt Adres Bulunmalıdır, Ekleme, Silme, GÜncelleme Yaparken Bu Hususa Dikkat Ediniz.
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table mb-0">
+                            <thead>
+                                <tr>
+                                    
+
+                                    <th>Açıklama</th>
+
+                                    <th>Adres</th>
+
+                                    <th>Telefon Numarası</th>
+
+                                    <th>Email</th>
+                                    <th>Kaldır</th>
+
+
+                                    <th>Güncelle</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    
+                                    <tr>
+                                        
+
+                                        <td>@item.Description</td>
+                                        <td>@item.Address</td>
+
+                                        <td>@item.PhoneNumber</td>
+                                        <td>@item.Email</td>
+
+                                        <td><a href="/Admin/AdminFooterAddress/DeleteFooterAddress/@item.FooterAddressId" class="btn  btn-outline-danger">Kaldır</a></td>
+
+                                        <td><a href="/Admin/AdminFooterAddress/updateFooterAddress/@item.FooterAddressId" class="btn btn-outline-dark"> Güncelle</a></td>
+                                       
+
+
+
+                                    </tr>
+
+                                }
+
+
+                            </tbody>
+                        </table>
+                        <br />
+                        <a href="/Admin/AdminFooterAddress/CreateFooterAddress" class="btn btn-primary">Yeni Alt Adres Girişi</a>
+
+
+                    </div>
+
+
+
+                </div>
+                <!-- end card-body-->
+            </div>
+            <!-- end card -->
+
+        </div>
+        <!-- end col -->
+        <!-- end col -->
+    </div>
+    <!-- end page title -->
+
+</div>

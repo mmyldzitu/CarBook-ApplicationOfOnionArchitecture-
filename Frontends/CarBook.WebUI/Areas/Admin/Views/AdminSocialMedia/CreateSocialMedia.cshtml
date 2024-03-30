@@ -1,0 +1,39 @@
+﻿@model CreateSocialMediaDto
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <h4 class="card-title">Yeni Link Ekleme</h4>
+                    <p class="card-subtitle mb-4">Yeni Sosyal Medya Linki Ekleyin</p>
+
+                    <form method="post" asp-action="CreateSocialMedia" asp-controller="AdminSocialMedia">
+
+                        <div class="form-group">
+                            <label for="exampleInputBrandName">Sosyal Medya Uygulaması İsmi</label>
+                            <input asp-for="@Model.name" type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputBrandName">Url</label>
+                            <input asp-for="@Model.url" type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputBrandName">İkon Url</label>
+                            <input asp-for="@Model.iconUrl" type="text" class="form-control" />
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary waves-effect waves-light">Link Ekle</button>
+                    </form>
+
+                </div> <!-- end card-body-->
+            </div>
+
+        </div>
+    </div>
+</div>

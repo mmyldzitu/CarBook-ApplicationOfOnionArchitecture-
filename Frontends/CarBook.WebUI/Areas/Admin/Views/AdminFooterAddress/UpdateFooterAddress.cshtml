@@ -1,0 +1,43 @@
+﻿@model UpdateFooterAddressDto
+@{
+    
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+   
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <h4 class="card-title">Alt Adres Bilgisi Güncelle </h4>
+                    <p class="card-subtitle mb-4">Alt Adresi güncelleyiniz.</p>
+
+                    <form method="post" asp-action="UpdateFooterAddress" asp-controller="AdminFooterAddress">
+                        <input type="hidden" asp-for="FooterAddressId" />
+                        <div class="form-group">
+                            <label for="exampleInputFeatureName">Adres</label>
+                            <input asp-for="@Model.Address" type="text" class="form-control"  />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFeatureName">Açıklama</label>
+                            <input asp-for="@Model.Description" type="text" class="form-control"  />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFeatureName">Email</label>
+                            <input asp-for="@Model.Email" type="text" class="form-control"  />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFeatureName">Telefon Numarası</label>
+                            <input asp-for="@Model.PhoneNumber" type="text" class="form-control" />
+                        </div>
+
+                        <button type="submit" class="btn btn-primary waves-effect waves-light"> Alt Adres  Güncelle</button>
+                    </form>
+
+                </div> <!-- end card-body-->
+            </div>
+
+        </div>
+    </div>
+</div>

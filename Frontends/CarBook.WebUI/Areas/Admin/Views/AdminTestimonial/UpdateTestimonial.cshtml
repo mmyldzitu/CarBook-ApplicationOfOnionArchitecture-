@@ -1,0 +1,43 @@
+﻿@model UpdateTestimonialDto
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <h4 class="card-title">Hizmet Güncelle </h4>
+                    <p class="card-subtitle mb-4">Hizmeti Güncelleyiniz.</p>
+
+                    <form method="post" asp-action="UpdateTestimonial" asp-controller="AdminTestimonial">
+                        <input type="hidden" asp-for="id" />
+                        <div class="form-group">
+                            <label for="exampleInputFeatureName">İsim</label>
+                            <input asp-for="@Model.name" type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFeatureName">Ünvan</label>
+                            <input asp-for="@Model.title" type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFeatureName">Yorum</label>
+                            <input asp-for="@Model.comment" type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFeatureName">Görsel Yolu</label>
+                            <input asp-for="@Model.imageUrl" type="text" class="form-control" />
+                        </div>
+
+
+
+                        <button type="submit" class="btn btn-primary waves-effect waves-light"> Referans  Güncelle</button>
+                    </form>
+
+                </div> <!-- end card-body-->
+            </div>
+
+        </div>
+    </div>
+</div>

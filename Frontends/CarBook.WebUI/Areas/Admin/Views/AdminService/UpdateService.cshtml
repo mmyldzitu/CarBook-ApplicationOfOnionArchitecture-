@@ -1,0 +1,39 @@
+﻿@model UpdateServiceDto
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <h4 class="card-title">Hizmet Güncelle </h4>
+                    <p class="card-subtitle mb-4">Hizmeti Güncelleyiniz.</p>
+
+                    <form method="post" asp-action="UpdateService" asp-controller="AdminService">
+                        <input type="hidden" asp-for="ServiceId" />
+                        <div class="form-group">
+                            <label for="exampleInputFeatureName">Başlık</label>
+                            <input asp-for="@Model.Title" type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFeatureName">Açıklama</label>
+                            <input asp-for="@Model.Description" type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFeatureName">İkon Url</label>
+                            <input asp-for="@Model.IconUrl" type="text" class="form-control" />
+                        </div>
+
+
+
+                        <button type="submit" class="btn btn-primary waves-effect waves-light"> Hizmet  Güncelle</button>
+                    </form>
+
+                </div> <!-- end card-body-->
+            </div>
+
+        </div>
+    </div>
+</div>
