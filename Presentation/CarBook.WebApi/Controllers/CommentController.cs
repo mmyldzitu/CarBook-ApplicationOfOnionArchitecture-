@@ -45,5 +45,11 @@ namespace CarBook.WebApi.Controllers
             await _mediator.Send(new RemoveCommentCommand(id));
             return Ok("Comment Bilgisi Silindi");
         }
+        [HttpGet("[action]/{id}")]
+        public async Task<IActionResult> GetCommentByBlogId(int id)
+        {
+            var values=await _mediator.Send(new GetCommentByBlogIdQuery(id));
+            return Ok(values);
+        }
     }
 }

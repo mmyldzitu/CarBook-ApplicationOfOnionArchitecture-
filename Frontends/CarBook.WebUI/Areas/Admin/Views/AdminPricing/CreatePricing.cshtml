@@ -1,0 +1,33 @@
+﻿@model CreatePricingDto
+@{
+    ViewData["Title"] = "CreatePricing";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <h4 class="card-title">Yeni Ödeme Opsiyonu Ekleme</h4>
+                    <p class="card-subtitle mb-4">Yeni Opsiyon Ekleyin</p>
+
+                    <form method="post" asp-action="CreatePricing" asp-controller="AdminPricing">
+
+                        <div class="form-group">
+                            <label for="exampleInputBrandName">Opsiyon Adı</label>
+                            <input asp-for="@Model.pricingName" type="text" class="form-control" placeholder="Ör: Günlük" />
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary waves-effect waves-light">Opsiyon Ekle</button>
+                    </form>
+
+                </div> <!-- end card-body-->
+            </div>
+
+        </div>
+    </div>
+</div>
+

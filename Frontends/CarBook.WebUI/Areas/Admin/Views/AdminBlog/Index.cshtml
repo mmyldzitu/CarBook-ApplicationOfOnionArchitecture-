@@ -1,0 +1,83 @@
+﻿@model List<ResultGetAllBlogsWithAuthorDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="container-fluid">
+
+    <!-- start page title -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Blog Listesi</h4>
+                    <p class="card-subtitle mb-4">
+                        Blogları Listeleyebilir, Kaldırabilir ve Güncelleyebilirsiniz.. Yeni Blog Eklme ve Güncelleme İşlemi Yönetici Tarafından Yapılmamaktadır. Yazarlar Yeni Blog Ekleme veya Blglarını Güncelleme İşlemlerinden Kendileri Sorumludurlar.
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table mb-0">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+
+                                    <th>Başlık</th>
+
+                                    <th>Yazar</th>
+
+                                    <th>Kategori</th>
+
+                                    <th>Tarih</th>
+                                    <th>Kaldır</th>
+                                    
+
+                                    <th>Bloğu Gör</th>
+                                    <th>Bloğa Ait Yorumlar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    count++;
+                                    <tr>
+                                        <td>@count</td>
+
+                                        <td>@item.title</td>
+                                        <td>@item.authorName</td>
+
+                                        <td>@item.categoryName</td>
+                                        <td>@item.createDate</td>
+
+                                        <td><a href="/Admin/AdminBlog/DeleteBlog/@item.blogId" class="btn  btn-outline-danger">Kaldır</a></td>
+                                        
+                                        <td><a href="/Admin/AdminBanner/YouBanner/@item.blogId" class="btn btn-outline-dark"> Gör</a></td>
+                                        <td><a href="/Admin/AdminComment/Index/@item.blogId" class="btn btn-outline-warning">Yorumlar</a></td>
+
+
+
+                                    </tr>
+
+                                }
+
+
+                            </tbody>
+                        </table>
+                        <br />
+
+
+                    </div>
+
+                </div>
+                <!-- end card-body-->
+            </div>
+            <!-- end card -->
+
+        </div>
+        <!-- end col -->
+        <!-- end col -->
+    </div>
+    <!-- end page title -->
+
+</div>
+

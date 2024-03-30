@@ -39,5 +39,15 @@ namespace CarBook.Persistance.Repositories.BlogRepositories
             }
             return new Blog();
         }
+        public async Task<string> ReturnBlogName(int id)
+        {
+            var blog = await _context.Blogs.Where(x=>x.BlogId==id).SingleOrDefaultAsync();
+            if (blog != null)
+            {
+                return blog.Title!;
+            }
+            return string.Empty;
+
+        }
     }
 }
