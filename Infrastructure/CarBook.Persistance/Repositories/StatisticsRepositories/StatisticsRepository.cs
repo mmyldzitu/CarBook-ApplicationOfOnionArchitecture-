@@ -1,4 +1,5 @@
-﻿using CarBook.Application.Interfaces.StatisticsInterfaces;
+﻿using CarBook.Application.Features.CQRS.Queries.BrandQueries;
+using CarBook.Application.Interfaces.StatisticsInterfaces;
 using CarBook.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -35,15 +36,23 @@ namespace CarBook.Persistance.Repositories.StatisticsRepositories
             var car = await _context.Cars.Include(x=>x.Brand).Where(x => x.CarPricings!.Any(x => x.Amount == maxCarPricing)).FirstOrDefaultAsync();
             if (car != null)
             {
-                return $"{car.Brand!.BrandName}- {car.Model}";
+                return $"{car.Brand!.BrandName} - {car.Model}";
 
             }
             return String.Empty;
         }
 
-        public string GetBrandAndModelDailyPriceIsMin()
+        public async Task<string> GetBrandAndModelDailyPriceIsMin()
         {
-            throw new NotImplementedException();
+            var pricingId = await _context.Pricings.Where(x => x.PricingName == "Günlük").Select(x => x.PricingId).SingleOrDefaultAsync();
+            var minCarPricing = await _context.CarPricings.Where(x => x.PricingId == pricingId).MinAsync(x => x.Amount);
+            var car = await _context.Cars.Include(x => x.Brand).Where(x => x.CarPricings!.Any(x => x.Amount == minCarPricing)).FirstOrDefaultAsync();
+            if (car != null)
+            {
+                return $"{car.Brand!.BrandName} - {car.Model}";
+
+            }
+            return String.Empty;
         }
 
         public int GetBrandsCount()
@@ -81,8 +90,19 @@ namespace CarBook.Persistance.Repositories.StatisticsRepositories
         public async Task<decimal> GetDailyAveragePrice()
         {
             int id = await _context.Pricings.Where(x => x.PricingName == "Günlük").Select(x => x.PricingId).SingleOrDefaultAsync();
-            var result = await _context.CarPricings.Where(x => x.PricingId == id).AverageAsync(x => x.Amount);
-            return result;
+            if (id != 0)
+            {
+                var query = _context.CarPricings.Where(x => x.PricingId == id);
+                if (query.Count() != 0)
+                {
+                    var result = await query.AverageAsync(x => x.Amount);
+                    return result;
+
+                }
+            }
+
+
+            return -1;
         }
 
         public int GetLocationCount()
@@ -92,32 +112,90 @@ namespace CarBook.Persistance.Repositories.StatisticsRepositories
 
         public async Task<decimal> GetMonthlyAveragePrice()
         {
-            int id = await _context.Pricings.Where(x => x.PricingName == "Aylık").Select(x => x.PricingId).SingleOrDefaultAsync();
-            var result = await _context.CarPricings.Where(x => x.PricingId == id).AverageAsync(x => x.Amount);
-            return result;
+
+            int id= await _context.Pricings.Where(x => x.PricingName == "Aylık").Select(x => x.PricingId).SingleOrDefaultAsync();
+            if (id != 0)
+            {
+                var query = _context.CarPricings.Where(x => x.PricingId == id);
+                if (query.Count() != 0)
+                {
+                    var result = await query.AverageAsync(x => x.Amount);
+                    return result;
+
+                }
+            }
+
+            
+            return -1;
+           
         }
 
         public async Task<string>GetMostCommentBlog()
         {
-            int maxVal = await _context.Blogs.MaxAsync(x => x.Comments!.Count());
-            var blog = await _context.Blogs.Where(x => x.Comments!.Count() == maxVal).FirstOrDefaultAsync();
-            if (blog != null)
+
+            var values = await _context.Comments.GroupBy(x => x.BlogId).Select(y => new
             {
-                return blog.Title!;
+                blogId = y.Key,
+                Count = y.Count()
+            }).OrderByDescending(z => z.Count).Take(1).FirstOrDefaultAsync();
+            if (values != null)
+            {
+
+
+                string? blogName = await _context.Blogs.Where(x => x.BlogId == values.blogId).Select(x => x.Title).FirstOrDefaultAsync();
+                if (blogName != null)
+                {
+                    return blogName;
+
+                }
+
+
+
             }
             return string.Empty;
         }
 
         public async Task<string >GetMostCountBrand()
         {
-            throw new NotImplementedException();
+            var values = await _context.Cars.GroupBy(x => x.BrandId).Select(y => new
+            {
+                brandId = y.Key,
+                Count = y.Count()
+            }).OrderByDescending(z => z.Count).Take(1).FirstOrDefaultAsync();
+            if (values != null)
+            {
+                
+                
+                    string? brandName = await _context.Brands.Where(x => x.BrandId == values.brandId).Select(x=>x.BrandName).FirstOrDefaultAsync();
+                if(brandName != null)
+                {
+                    return brandName;
+
+                }
+
+
+
+            }
+            return string.Empty;
+
         }
 
         public async Task<decimal> GetWeeklyAveragePrice()
         {
             int id = await _context.Pricings.Where(x => x.PricingName == "Haftalık").Select(x => x.PricingId).SingleOrDefaultAsync();
-            var result = await _context.CarPricings.Where(x => x.PricingId == id).AverageAsync(x => x.Amount);
-            return result;
+            if (id != 0)
+            {
+                var query = _context.CarPricings.Where(x => x.PricingId == id);
+                if (query.Count() != 0)
+                {
+                    var result = await query.AverageAsync(x => x.Amount);
+                    return result;
+
+                }
+            }
+
+
+            return -1;
         }
     }
 }

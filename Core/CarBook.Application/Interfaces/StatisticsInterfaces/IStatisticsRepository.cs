@@ -23,6 +23,6 @@ namespace CarBook.Application.Interfaces.StatisticsInterfaces
         int GetCarCountByGasolineOrDiesel();
         int GetCarCountByElectric();
         Task<string >GetBrandAndModelDailyPriceIsMax();
-        string GetBrandAndModelDailyPriceIsMin();
+        Task<string >GetBrandAndModelDailyPriceIsMin();
     }
 }

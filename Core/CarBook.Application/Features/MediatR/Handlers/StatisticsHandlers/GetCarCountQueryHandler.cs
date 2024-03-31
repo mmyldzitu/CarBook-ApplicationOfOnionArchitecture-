@@ -15,7 +15,7 @@ namespace CarBook.Application.Features.MediatR.Handlers.StatisticsHandlers
     {
         private readonly IStatisticsRepository   _statisticsRepository;
 
-        public GetCarCountQueryHandler(ICarRepository statisticsRepository)
+        public GetCarCountQueryHandler(IStatisticsRepository statisticsRepository)
         {
             _statisticsRepository = statisticsRepository;
         }
