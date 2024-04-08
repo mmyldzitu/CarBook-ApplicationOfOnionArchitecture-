@@ -10,5 +10,6 @@ namespace CarBook.Application.Interfaces.CarPricingInterfaces
     public interface ICarPricingRespository
     {
         Task<List<CarPricing>> GetCarPricings(int id);
+        Task<decimal> GetCarDailyPricing(int id);
     }
 }

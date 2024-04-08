@@ -19,6 +19,16 @@ namespace CarBook.Persistance.Repositories.CarPricingRepositories
             _context = context;
         }
 
+        public async Task<decimal> GetCarDailyPricing(int id)
+        {
+            var value = await _context.CarPricings.Where(x => x.CarId == id && x.PricingId == 2).FirstOrDefaultAsync();
+            if (value != null)
+            {
+                return value.Amount;
+            }
+            return 0;
+        }
+
         public async Task<List<CarPricing>> GetCarPricings(int id)
         {
 
